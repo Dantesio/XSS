@@ -1,10 +1,11 @@
 package ru.hh.security.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.hh.security.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-  User findByLogin(String email);
+public interface UserRepository extends ListCrudRepository<User, Long> {
+  Optional<User> findByLogin(String email);
 }

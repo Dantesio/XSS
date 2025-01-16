@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS users
 (
     id       SERIAL PRIMARY KEY,
     login    VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    role     VARCHAR(255) NOT NULL
 );
 
 INSERT INTO vacancies (title, description)
@@ -29,7 +30,6 @@ VALUES ('Уборщик',
        ('Слесарь',
         'B кpупноe пpоизводcтво комплектующих кoмпонeнтов для вагонocтрoения, тpaнcпopтнoго машиностроения трeбуетcя на вахту слecаpь! вaxта, г. Твеpь');
 
-INSERT INTO users (login, password)
-VALUES ('user1', 'user1_password_ABC'),
-       ('user2', 'user2_password_!d@'),
-       ('user3', 'user3_password_123');
+INSERT INTO users (login, password, role)
+VALUES ('admin', '$2a$10$jm/8baSbDXlLU4ckif1wqOCV/v83mn9Gd5Gx51M4uw8Dp5SsURirS', 'admin')
+;

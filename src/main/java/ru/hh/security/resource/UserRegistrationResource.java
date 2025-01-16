@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.hh.security.dto.UserRegistrationDto;
-import ru.hh.security.service.UserService;
+import ru.hh.security.service.UserDetailsServiceImpl;
 
 @Controller
 @RequestMapping("/registration")
 public class UserRegistrationResource {
-  private final UserService userService;
+  private final UserDetailsServiceImpl userDetailsServiceImpl;
 
-  public UserRegistrationResource(UserService userService) {
-    this.userService = userService;
+  public UserRegistrationResource(UserDetailsServiceImpl userDetailsServiceImpl) {
+    this.userDetailsServiceImpl = userDetailsServiceImpl;
   }
 
   @ModelAttribute("user")
@@ -31,10 +31,10 @@ public class UserRegistrationResource {
   @PostMapping
   public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
     try {
-      userService.loadUserByUsername(registrationDto.getLogin());
+      userDetailsServiceImpl.loadUserByUsername(registrationDto.getLogin());
       return "redirect:/registration?error";
     } catch (UsernameNotFoundException e) {
-      userService.save(registrationDto);
+      userDetailsServiceImpl.save(registrationDto);
       return "redirect:/registration?success";
     }
   }

@@ -1,0 +1,29 @@
+## PostgreSQL
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hh
+    username: hh
+    password: hh
+
+  ## default connection pool
+  hikari:
+    connectionTimeout: 20000
+    maximumPoolSize: 5
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: debug
+
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: false
