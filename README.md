@@ -29,7 +29,7 @@ docker-compose up
 Получение списка вакансий по названию (параметр `title` не обязателен)
 
 ```
-http://localhost:8080/vacancy?title=Грузчик
+http://localhost:8082/vacancy?title=Грузчик
 ```
 
 ### XSS
@@ -37,11 +37,11 @@ http://localhost:8080/vacancy?title=Грузчик
 Главная страница
 
 ```
-http://localhost:8080
+http://localhost:8082
 ```
 
 Страница создания вакансии
 
 ```
-http://localhost:8080/add
+http://localhost:8082/add
 ```
