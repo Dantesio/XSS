@@ -1,4 +1,4 @@
-name: XSS
+version: "3.3"
 
 services:
   postgres:
