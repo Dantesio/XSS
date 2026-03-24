@@ -1,9 +1,9 @@
 ## PostgreSQL
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5436/hh
-    username: hh
-    password: hh
+    url: jdbc:postgresql://localhost:5436/fraud
+    username: fraud
+    password: fraud
 
   ## default connection pool
   hikari:
